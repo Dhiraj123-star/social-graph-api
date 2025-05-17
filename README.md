@@ -5,71 +5,80 @@
 
 ## 📘 Overview
 
-Welcome to the **Social Network Friend Graph API**, a lightweight and efficient backend service built using **FastAPI**, **Neo4j**, and **Docker Compose**. This project models a social graph where users can connect with each other, manage friendships, and explore their social network dynamically.
+The **Social Network Friend Graph API** is a scalable backend service built with **FastAPI**, **Neo4j**, and **Docker Compose**. It models social relationships, allowing users to create friendships, list friends, and find mutual friends efficiently using graph database capabilities.
 
 ## 🧩 Tech Stack
 
-* ⚡ **FastAPI** – High-performance Python web framework for APIs.
-* 🌐 **Neo4j** – Native graph database designed for connected data.
-* 🐳 **Docker Compose** – Container orchestration to simplify local development.
+- ⚡ **FastAPI** – Modern, fast Python web framework.
+- 🌐 **Neo4j** – Graph database optimized for connected data.
+- 🐳 **Docker Compose** – Simplifies local development and deployment.
+- 🔐 **python-dotenv** – Securely manage environment variables.
+- 🖋️ **Black & Flake8** – Code formatting and linting for quality.
+- ⚙️ **GitHub Actions** – Automated lint checks and Docker image deployment to DockerHub.
 
-## 🎯 Core Features
+## 🎯 Features
 
 ### 👤 User Management
 
-* Add new users to the network with unique identifiers.
-* Automatically initialize user nodes in the Neo4j graph.
+- Add new users with unique IDs.
+- Create corresponding user nodes in Neo4j automatically.
 
 ### 🤝 Friendships
 
-* Create bi-directional friendships between two users.
-* Prevent duplicate or invalid connections.
-* Support unidirectional/optional relationships for future scalability.
+- Establish bi-directional friendships between users.
+- Prevent duplicates and invalid relations.
+- Support flexibility for future enhancements.
 
-### 📜 Friends List
+### 📜 Friends Listing
 
-* Retrieve a complete list of a user's friends.
-* Returns structured data to easily integrate with frontends or other services.
+- Fetch a user’s complete list of friends.
+- Provide structured responses for easy integration.
 
 ### 🧑‍🤝‍🧑 Mutual Friends
 
-* Query mutual friends between two users.
-* Useful for social recommendations, trust metrics, or gamification.
+- Query mutual friends between any two users.
+- Enables social recommendations and trust calculations.
 
-## 🚀 How to Run
+## 🚀 Running the Application
 
-1. Clone the repository 📁
-
-2. Set up your environment variables in a `.env` file 🔐
-
-3. Build and start the services with:
+1. Clone the repo.
+2. Create a `.env` file with Neo4j credentials.
+3. Run with:
 
    ```bash
    docker-compose up --build
-   ```
+````
 
-4. Access the API at: [http://localhost:8000/docs](http://localhost:8000/docs) 🌐
+4. Access API docs at [http://localhost:8000/docs](http://localhost:8000/docs).
 
-## 📦 Project Structure
+## ⚙️ Development & CI/CD
 
-* `app/` – FastAPI source code and logic
-* `neo4j/` – Graph data and configurations
-* `Dockerfile` – API container setup
-* `docker-compose.yml` – Service orchestration
-* `.env` – Environment configuration (excluded from version control)
+* Environment variables are loaded via `python-dotenv`.
+* Local development and testing with Docker Compose.
+* GitHub Actions runs **Black** and **Flake8** on push/PR.
+* Docker images are automatically built and pushed to DockerHub on successful CI.
 
-## ✅ Production Considerations
+## 📦 Project Layout
 
-* Secure environment variables using Docker secrets or cloud-based key stores 🔐
-* Implement rate limiting and authentication for public APIs 🔐
-* Add persistent volume backups for Neo4j data 💾
-* Use health checks and logging for monitoring and observability 📈
+* `app/` – FastAPI app source code.
+* `Dockerfile` – API container definition.
+* `docker-compose.yml` – Service orchestration.
+* `.env` – Environment variables (not committed).
+* `.github/workflows/ci.yml` – CI workflow for linting and DockerHub deployment.
 
-## 🧠 Ideal Use Cases
+## ✅ Production Notes
 
-* Friend suggestion systems
-* Social graph analytics
-* Trust and influence modeling
-* Lightweight social networking prototypes
+* Store secrets securely with Docker secrets or cloud vaults.
+* Implement authentication and rate limiting for API protection.
+* Backup Neo4j data volumes regularly.
+* Use health checks and logging for observability and maintenance.
+
+## 🧠 Use Cases
+
+* Social network friend management.
+* Graph-based recommendations.
+* Analytics on social connections.
+* Prototyping social features for apps.
 
 ---
+
